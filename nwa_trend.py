@@ -1,72 +1,76 @@
-from sqlalchemy import Column, Integer, String
-from ..database import Base
+from typing import Optional
 
-class NWATrend(Base):
-    __tablename__ = "4G NWA Trend"
+from .base import FormattedSchema
 
-    id = Column(Integer, primary_key=True, index=True)
-    site_id = Column("SITE ID", String, index=True, nullable=True)
-    cluster = Column("Cluster", String, nullable=True)
-    site_principal_owner = Column("Site- Principal Owner", String, nullable=True)
-    dg_non_dg = Column("DG/Non-DG", String, nullable=True)
-    uls = Column("ULS", String, nullable=True)
-    current_site_status = Column("Current Site Status", String, nullable=True)
-    owner_issue_sites = Column("Owner issue Sites", String, nullable=True)
-    district = Column("District", String, nullable=True)
-    circle = Column("circle", String, nullable=True)
-    bz = Column("BZ", String, nullable=True)
-    cem = Column("CEM", String, nullable=True)
-    avl_tech = Column("Avl Tech", String, nullable=True)
-    cmo = Column("CMO", String, nullable=True)
-    fifth_nov_incidence = Column("5th Nov Incidence", String, nullable=True)
-    mtd_incidence = Column("MTD incidence", String, nullable=True)
-    nov_22 = Column("Nov'22", String, nullable=True)
-    dec_22 = Column("Dec'22", String, nullable=True)
-    jan_23 = Column("Jan'23", String, nullable=True)
-    feb_23 = Column("Feb'23", String, nullable=True)
-    mar_23 = Column("Mar'23", String, nullable=True)
-    apr_23 = Column("Apr'23", String, nullable=True)
-    may_23 = Column("May'23", String, nullable=True)
-    jun_23 = Column("Jun'23", String, nullable=True)
-    jul_23 = Column("Jul'23", String, nullable=True)
-    aug_23 = Column("Aug'23", String, nullable=True)
-    sep_23 = Column("Sep'23", String, nullable=True)
-    oct_23 = Column("Oct'23", String, nullable=True)
-    nov_23 = Column("Nov'23", String, nullable=True)
-    dec_23 = Column("Dec'23", String, nullable=True)
-    jan_24 = Column("Jan'24", String, nullable=True)
-    feb_24 = Column("Feb'24", String, nullable=True)
-    mar_24 = Column("Mar'24", String, nullable=True)
-    apr_24 = Column("Apr'24", String, nullable=True)
-    may_24 = Column("May'24", String, nullable=True)
-    jun_24 = Column("Jun'24", String, nullable=True)
-    jul_24 = Column("Jul'24", String, nullable=True)
-    aug_24 = Column("Aug'24", String, nullable=True)
-    sep_24 = Column("Sep'24", String, nullable=True)
-    oct_24 = Column("Oct'24", String, nullable=True)
-    nov_24 = Column("Nov'24", String, nullable=True)
-    dec_24 = Column("Dec'24", String, nullable=True)
-    jan_25 = Column("Jan'25", String, nullable=True)
-    feb_25 = Column("Feb'25", String, nullable=True)
-    mar_25 = Column("Mar'25", String, nullable=True)
-    apr_25 = Column("Apr'25", String, nullable=True)
-    may_25 = Column("May'25", String, nullable=True)
-    jun_25 = Column("Jun'25", String, nullable=True)
-    jul_25 = Column("Jul'25", String, nullable=True)
-    aug_25 = Column("Aug'25", String, nullable=True)
-    sep_25 = Column("Sep'25", String, nullable=True)
-    oct_25 = Column("Oct'25", String, nullable=True)
-    nov_25 = Column("Nov'25", String, nullable=True)
-    dec_25 = Column("Dec'25", String, nullable=True)
-    jan_26 = Column("Jan'26", String, nullable=True)
-    feb_26 = Column("Feb'26", String, nullable=True)
-    mar_26 = Column("Mar'26", String, nullable=True)
-    apr_26 = Column("Apr'26", String, nullable=True)
-    may_26 = Column("May'26", String, nullable=True)
-    jun_26 = Column("Jun'26", String, nullable=True)
-    jul_26 = Column("Jul'26", String, nullable=True)
-    aug_26 = Column("Aug'26", String, nullable=True)
-    sep_26 = Column("Sep'26", String, nullable=True)
-    oct_26 = Column("Oct'26", String, nullable=True)
-    nov_26 = Column("Nov'26", String, nullable=True)
-    dec_26 = Column("Dec'26", String, nullable=True)
+class NWATrendBase(FormattedSchema):
+    site_id: Optional[str] = None
+    cluster: Optional[str] = None
+    site_principal_owner: Optional[str] = None
+    dg_non_dg: Optional[str] = None
+    uls: Optional[str] = None
+    current_site_status: Optional[str] = None
+    owner_issue_sites: Optional[str] = None
+    district: Optional[str] = None
+    circle: Optional[str] = None
+    bz: Optional[str] = None
+    cem: Optional[str] = None
+    avl_tech: Optional[str] = None
+    cmo: Optional[str] = None
+    fifth_nov_incidence: Optional[str] = None
+    mtd_incidence: Optional[str] = None
+    nov_22: Optional[str] = None
+    dec_22: Optional[str] = None
+    jan_23: Optional[str] = None
+    feb_23: Optional[str] = None
+    mar_23: Optional[str] = None
+    apr_23: Optional[str] = None
+    may_23: Optional[str] = None
+    jun_23: Optional[str] = None
+    jul_23: Optional[str] = None
+    aug_23: Optional[str] = None
+    sep_23: Optional[str] = None
+    oct_23: Optional[str] = None
+    nov_23: Optional[str] = None
+    dec_23: Optional[str] = None
+    jan_24: Optional[str] = None
+    feb_24: Optional[str] = None
+    mar_24: Optional[str] = None
+    apr_24: Optional[str] = None
+    may_24: Optional[str] = None
+    jun_24: Optional[str] = None
+    jul_24: Optional[str] = None
+    aug_24: Optional[str] = None
+    sep_24: Optional[str] = None
+    oct_24: Optional[str] = None
+    nov_24: Optional[str] = None
+    dec_24: Optional[str] = None
+    jan_25: Optional[str] = None
+    feb_25: Optional[str] = None
+    mar_25: Optional[str] = None
+    apr_25: Optional[str] = None
+    may_25: Optional[str] = None
+    jun_25: Optional[str] = None
+    jul_25: Optional[str] = None
+    aug_25: Optional[str] = None
+    sep_25: Optional[str] = None
+    oct_25: Optional[str] = None
+    nov_25: Optional[str] = None
+    dec_25: Optional[str] = None
+    jan_26: Optional[str] = None
+    feb_26: Optional[str] = None
+    mar_26: Optional[str] = None
+    apr_26: Optional[str] = None
+    may_26: Optional[str] = None
+    jun_26: Optional[str] = None
+    jul_26: Optional[str] = None
+    aug_26: Optional[str] = None
+    sep_26: Optional[str] = None
+    oct_26: Optional[str] = None
+    nov_26: Optional[str] = None
+    dec_26: Optional[str] = None
+
+class NWATrendResponse(NWATrendBase):
+    id: int
+
+    class Config:
+        from_attributes = True

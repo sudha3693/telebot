@@ -1,18 +1,22 @@
-from sqlalchemy import Column, Integer, String
-from ..database import Base
+from typing import Optional
 
-class InfraClimateProofing(Base):
-    __tablename__ = "Infra Climate Proofing"
+from .base import FormattedSchema
 
-    id = Column(Integer, primary_key=True, index=True)
-    circle = Column("Circle", String, nullable=True)
-    site_id = Column("Siteid", String, index=True, nullable=True)
-    uni = Column("Uni", String, nullable=True)
-    toco = Column("Toco", String, nullable=True)
-    toco_id = Column("Toco-ID", String, nullable=True)
-    cluster = Column("Cluster", String, nullable=True)
-    district = Column("District", String, nullable=True)
-    bz = Column("BZ", String, nullable=True)
-    activity = Column("Activity", String, nullable=True)
-    final_status = Column("Final Status", String, nullable=True)
-    remarks = Column("Remarks", String, nullable=True)
+class InfraClimateProofingBase(FormattedSchema):
+    circle: Optional[str] = None
+    site_id: Optional[str] = None
+    uni: Optional[str] = None
+    toco: Optional[str] = None
+    toco_id: Optional[str] = None
+    cluster: Optional[str] = None
+    district: Optional[str] = None
+    bz: Optional[str] = None
+    activity: Optional[str] = None
+    final_status: Optional[str] = None
+    remarks: Optional[str] = None
+
+class InfraClimateProofingResponse(InfraClimateProofingBase):
+    id: int
+
+    class Config:
+        from_attributes = True

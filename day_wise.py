@@ -1,76 +1,90 @@
-from sqlalchemy import Column, Integer, String
-from ..database import Base
+from pydantic import BaseModel
+from typing import List, Optional
 
-class DayWise4G(Base):
-    __tablename__ = "4G-Day wise"
+from .base import FormattedSchema
 
-    id = Column(Integer, primary_key=True, index=True)
-    site_id = Column("SITE ID", String, index=True, nullable=True)
-    cluster = Column("Cluster", String, nullable=True)
-    current_site_status = Column("Current Site Status", String, nullable=True)
-    owner_issue_sites = Column("Owner issue Sites", String, nullable=True)
-    five_g_available = Column("5G Available", String, nullable=True)
-    district = Column("District", String, nullable=True)
-    town = Column("Town", String, nullable=True)
-    top_8_towns = Column("Top 8 Towns", String, nullable=True)
-    circle = Column("Circle", String, nullable=True)
-    bz = Column("bZ", String, nullable=True)
+class DayWiseBase(FormattedSchema):
+    site_id: Optional[str] = None
+    cluster: Optional[str] = None
+    current_site_status: Optional[str] = None
+    owner_issue_sites: Optional[str] = None
+    five_g_available: Optional[str] = None
+    district: Optional[str] = None
+    town: Optional[str] = None
+    top_8_towns: Optional[str] = None
+    circle: Optional[str] = None
+    bz: Optional[str] = None
 
-    d2_feb = Column("2-Feb", String, nullable=True)
-    d3_feb = Column("3-Feb", String, nullable=True)
-    d4_feb = Column("4-Feb", String, nullable=True)
-    d5_feb = Column("5-Feb", String, nullable=True)
-    d6_feb = Column("6-Feb", String, nullable=True)
-    d7_feb = Column("7-Feb", String, nullable=True)
-    d8_feb = Column("8-Feb", String, nullable=True)
-    d9_feb = Column("9-Feb", String, nullable=True)
-    d10_feb = Column("10-Feb", String, nullable=True)
-    d11_feb = Column("11-Feb", String, nullable=True)
-    d12_feb = Column("12-Feb", String, nullable=True)
-    d13_feb = Column("13-Feb", String, nullable=True)
-    d14_feb = Column("14-Feb", String, nullable=True)
-    d15_feb = Column("15-Feb", String, nullable=True)
-    d16_feb = Column("16-Feb", String, nullable=True)
-    d17_feb = Column("17-Feb", String, nullable=True)
-    d18_feb = Column("18-Feb", String, nullable=True)
-    d19_feb = Column("19-Feb", String, nullable=True)
-    d20_feb = Column("20-Feb", String, nullable=True)
-    d21_feb = Column("21-Feb", String, nullable=True)
-    d22_feb = Column("22-Feb", String, nullable=True)
-    d23_feb = Column("23-Feb", String, nullable=True)
-    d24_feb = Column("24-Feb", String, nullable=True)
-    d25_feb = Column("25-Feb", String, nullable=True)
-    d26_feb = Column("26-Feb", String, nullable=True)
-    d27_feb = Column("27-Feb", String, nullable=True)
-    d28_feb = Column("28-Feb", String, nullable=True)
-    d1_mar = Column("1-Mar", String, nullable=True)
-    d2_mar = Column("2-Mar", String, nullable=True)
-    d3_mar = Column("3-Mar", String, nullable=True)
-    d4_mar = Column("4-Mar", String, nullable=True)
-    d5_mar = Column("5-Mar", String, nullable=True)
-    d6_mar = Column("6-Mar", String, nullable=True)
-    d7_mar = Column("7-Mar", String, nullable=True)
-    d8_mar = Column("8-Mar", String, nullable=True)
-    d9_mar = Column("9-Mar", String, nullable=True)
-    d10_mar = Column("10-Mar", String, nullable=True)
-    d11_mar = Column("11-Mar", String, nullable=True)
-    d12_mar = Column("12-Mar", String, nullable=True)
-    d13_mar = Column("13-Mar", String, nullable=True)
-    d14_mar = Column("14-Mar", String, nullable=True)
-    d15_mar = Column("15-Mar", String, nullable=True)
-    d16_mar = Column("16-Mar", String, nullable=True)
-    d17_mar = Column("17-Mar", String, nullable=True)
-    d18_mar = Column("18-Mar", String, nullable=True)
-    d19_mar = Column("19-Mar", String, nullable=True)
-    d20_mar = Column("20-Mar", String, nullable=True)
-    d21_mar = Column("21-Mar", String, nullable=True)
-    d22_mar = Column("22-Mar", String, nullable=True)
-    d23_mar = Column("23-Mar", String, nullable=True)
-    d24_mar = Column("24-Mar", String, nullable=True)
-    d25_mar = Column("25-Mar", String, nullable=True)
-    d26_mar = Column("26-Mar", String, nullable=True)
-    d27_mar = Column("27-Mar", String, nullable=True)
-    d28_mar = Column("28-Mar", String, nullable=True)
-    d29_mar = Column("29-Mar", String, nullable=True)
-    d30_mar = Column("30-Mar", String, nullable=True)
-    d31_mar = Column("31-Mar", String, nullable=True)
+    d2_feb: Optional[str] = None
+    d3_feb: Optional[str] = None
+    d4_feb: Optional[str] = None
+    d5_feb: Optional[str] = None
+    d6_feb: Optional[str] = None
+    d7_feb: Optional[str] = None
+    d8_feb: Optional[str] = None
+    d9_feb: Optional[str] = None
+    d10_feb: Optional[str] = None
+    d11_feb: Optional[str] = None
+    d12_feb: Optional[str] = None
+    d13_feb: Optional[str] = None
+    d14_feb: Optional[str] = None
+    d15_feb: Optional[str] = None
+    d16_feb: Optional[str] = None
+    d17_feb: Optional[str] = None
+    d18_feb: Optional[str] = None
+    d19_feb: Optional[str] = None
+    d20_feb: Optional[str] = None
+    d21_feb: Optional[str] = None
+    d22_feb: Optional[str] = None
+    d23_feb: Optional[str] = None
+    d24_feb: Optional[str] = None
+    d25_feb: Optional[str] = None
+    d26_feb: Optional[str] = None
+    d27_feb: Optional[str] = None
+    d28_feb: Optional[str] = None
+    d1_mar: Optional[str] = None
+    d2_mar: Optional[str] = None
+    d3_mar: Optional[str] = None
+    d4_mar: Optional[str] = None
+    d5_mar: Optional[str] = None
+    d6_mar: Optional[str] = None
+    d7_mar: Optional[str] = None
+    d8_mar: Optional[str] = None
+    d9_mar: Optional[str] = None
+    d10_mar: Optional[str] = None
+    d11_mar: Optional[str] = None
+    d12_mar: Optional[str] = None
+    d13_mar: Optional[str] = None
+    d14_mar: Optional[str] = None
+    d15_mar: Optional[str] = None
+    d16_mar: Optional[str] = None
+    d17_mar: Optional[str] = None
+    d18_mar: Optional[str] = None
+    d19_mar: Optional[str] = None
+    d20_mar: Optional[str] = None
+    d21_mar: Optional[str] = None
+    d22_mar: Optional[str] = None
+    d23_mar: Optional[str] = None
+    d24_mar: Optional[str] = None
+    d25_mar: Optional[str] = None
+    d26_mar: Optional[str] = None
+    d27_mar: Optional[str] = None
+    d28_mar: Optional[str] = None
+    d29_mar: Optional[str] = None
+    d30_mar: Optional[str] = None
+    d31_mar: Optional[str] = None
+
+class DayWiseResponse(DayWiseBase):
+    id: int
+
+    class Config:
+        from_attributes = True
+
+class DayWiseTrendPoint(FormattedSchema):
+    label: str
+    attribute: str
+    value: Optional[str] = None
+
+class DayWiseDetailResponse(DayWiseResponse):
+    trend_points: List[DayWiseTrendPoint] = []
+    trend_column_labels: List[str] = []

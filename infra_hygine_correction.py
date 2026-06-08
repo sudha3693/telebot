@@ -1,20 +1,32 @@
-from sqlalchemy import Column, Integer, String
-from ..database import Base
+from pydantic import validator
+from typing import Optional
 
-class InfraHygineCorrection(Base):
-    __tablename__ = "Infra Hygine Correction"
+from .base import FormattedSchema
 
-    id = Column(Integer, primary_key=True, index=True)
-    site_id = Column("SITEID", String, index=True, nullable=True)
-    site_name = Column("Site Name", String, nullable=True)
-    principal_owner = Column("Site- Principal Owner", String, nullable=True)
-    dg_non_dg = Column("DG/Non-DG", String, nullable=True)
-    bz = Column("BZ", String, nullable=True)
-    cluster = Column("Cluster", String, nullable=True)
-    district = Column("District", String, nullable=True)
-    circle = Column("Circle", String, nullable=True)
-    bucket_category = Column("Bucket/Category", String, nullable=True)
-    closure_date_month = Column("Closure Date/Month", String, nullable=True)
-    month = Column("Month", String, nullable=True)
-    bucket = Column("Bucket", String, nullable=True)
-    status = Column("Status", String, nullable=True)
+class InfraHygineCorrectionBase(FormattedSchema):
+    site_id: Optional[str] = None
+    site_name: Optional[str] = None
+    principal_owner: Optional[str] = None
+    dg_non_dg: Optional[str] = None
+    bz: Optional[str] = None
+    cluster: Optional[str] = None
+    district: Optional[str] = None
+    circle: Optional[str] = None
+    bucket_category: Optional[str] = None
+    closure_date_month: Optional[str] = None
+    month: Optional[str] = None
+    bucket: Optional[str] = None
+    status: Optional[str] = None
+    dg_deployment: Optional[str] = None
+    bb_deployment: Optional[str] = None
+    solar_deployment: Optional[str] = None
+
+    @validator("dg_deployment", "bb_deployment", "solar_deployment", pre=True, always=True)
+    def _normalize_optional_text(cls, value):
+        return "" if value is None else value
+
+class InfraHygineCorrectionResponse(InfraHygineCorrectionBase):
+    id: int
+
+    class Config:
+        from_attributes = True
